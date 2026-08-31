@@ -12,8 +12,8 @@
 <body>
 <header>
   <div class="wrap nav">
-    <a class="brand" href="index.html"><img src="assets/ttc-logo.png" alt="T.T.C. logo"><span>Thrashing the Crypts</span></a>
-    <nav><a class="" href="index.html">Home</a><a class="active" href="meetups.html">Meetups</a><a class="" href="merch.html">Merch</a><a class="" href="about.html">About Us</a></nav>
+    <a class="brand" href="index.html"><span>Thrashing the Crypts</span></a>
+    <nav><a class="" href="index.html">Home</a><a class="active" href="meetups.html">Meetups</a><a class="" href="gallery.html">Gallery</a><a class="" href="merch.html">Merch</a><a class="" href="about.html">About Us</a></nav>
   </div>
 </header>
 
@@ -21,6 +21,18 @@
 <div class="wrap">
   <div class="section-head"><div><div class="eyebrow">Shows & hangouts</div><h1 style="font-size:clamp(3rem,7vw,6rem)">Meetups</h1></div>
   <p>Use this page to post the exact show link, venue, date, and meetup plan. The form below saves meetups locally in the browser, so you can test the site without any backend.</p></div>
+
+  <section class="pit-preview" aria-labelledby="pit-preview-title">
+    <div class="section-head">
+      <div><div class="eyebrow">From the pit</div><h2 id="pit-preview-title">This is what we show up for</h2></div>
+      <p>Real shows, real people, and the nights that built the club.</p>
+    </div>
+    <div class="pit-preview-grid">
+      <img src="assets/gallery/artist-meetup-red-light.jpeg" alt="Metal fans meeting Obituary after a show" loading="lazy">
+      <img src="assets/gallery/group-at-venue.jpeg" alt="Five metal fans together at a concert venue" loading="lazy">
+    </div>
+    <div class="actions"><a class="btn primary" href="gallery.html">See the full gallery</a></div>
+  </section>
 
   <section class="tour-board" aria-labelledby="tour-board-title">
     <div class="section-head tour-board-head">
@@ -76,22 +88,6 @@
 
   <div id="meetup-list" class="grid"></div>
 
-  <section class="section tight">
-    <div class="rule"></div>
-    <div class="section-head"><div><div class="eyebrow">Admin-style quick add</div><h2>Add a show meetup</h2></div>
-    <p>Paste any official venue, ticketing, promoter, or event-page link in the “Show / ticket link” field.</p></div>
-    <form id="meetup-form" class="card">
-      <div class="form-grid">
-        <div><label for="show">Show / bands</label><input id="show" name="show" placeholder="Exodus + support" required></div>
-        <div><label for="date">Date</label><input id="date" name="date" placeholder="Sat, Oct. 17"></div>
-        <div><label for="venue">Venue / city</label><input id="venue" name="venue" placeholder="Venue — Gainesville, FL"></div>
-        <div><label for="link">Show / ticket link</label><input id="link" name="link" type="url" placeholder="https://..."></div>
-        <div class="full"><label for="details">Meetup details</label><textarea id="details" name="details" placeholder="Meet by the front doors at 6:30. Look for the T.T.C. vest/patch."></textarea></div>
-      </div>
-      <button class="btn primary" type="submit">Post meetup</button>
-    </form>
-    <div class="notice"><strong>When you put this site online:</strong> the local-storage meetup form can be replaced with a real admin panel, Google Form, Airtable, Supabase, or another database so everyone sees the same events.</div>
-  </section>
 </div>
 </main>
 
@@ -103,3 +99,4 @@
 </footer>
 </body>
 </html>
+
