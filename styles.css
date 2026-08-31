@@ -104,3 +104,14 @@ footer{border-top:1px solid #292929;padding:36px 0;color:#888}
   .nav{align-items:flex-start;padding:13px 0;flex-direction:column}
   header{position:relative}
 }
+.tour-board{margin:2rem 0 3rem}
+.tour-board-head{margin-bottom:1.25rem}
+.tour-grid{align-items:start}
+.tour-card{display:flex;flex-direction:column;gap:1rem}
+.tour-card .btn{align-self:flex-start;margin-top:auto}
+.tour-dates{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.tour-dates li{display:grid;grid-template-columns:5.25rem 1fr;gap:.75rem;padding:.7rem 0;border-bottom:1px solid var(--line)}
+.tour-dates time{color:var(--acid);font-weight:800;text-transform:uppercase}
+.tour-dates span{color:var(--muted);line-height:1.4}
+.tour-updated{margin:.9rem 0 0;color:var(--muted);font-size:.85rem;text-align:right}
+@media (max-width:600px){.tour-dates li{grid-template-columns:4.75rem 1fr}.tour-updated{text-align:left}}
