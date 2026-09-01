@@ -113,13 +113,16 @@ footer{border-top:1px solid #292929;padding:36px 0;color:#888}
 .join-form .btn{justify-self:stretch;text-align:center;padding:15px 18px;border:0;box-shadow:0 8px 24px rgba(178,21,25,.25)}
 .join-form .meta{margin-bottom:0}
 .mailchimp-honeypot{position:absolute;left:-5000px}
-.about-logo img{width:100%;max-width:430px;object-fit:contain}
+.about-logo{position:sticky;top:110px;display:flex;align-items:flex-start;justify-content:center;padding:22px;background:radial-gradient(circle,rgba(180,73,37,.12),transparent 68%)}
+.about-logo img{display:block;width:100%;max-width:500px;height:auto;object-fit:contain;filter:drop-shadow(0 18px 24px rgba(0,0,0,.65))}
 .rule{height:1px;background:linear-gradient(90deg,var(--red),transparent);margin:28px 0}
 @media (max-width:850px){
   .hero,.about-layout,.join-layout{grid-template-columns:1fr}
   .hero{padding-top:38px}
   .hero-art{order:-1}
   .hero-art img{max-height:340px}
+  .about-logo{position:relative;top:auto;padding:0 14px 18px}
+  .about-logo img{max-width:420px}
   .grid{grid-template-columns:1fr}
   .form-grid{grid-template-columns:1fr}
   .full{grid-column:auto}
