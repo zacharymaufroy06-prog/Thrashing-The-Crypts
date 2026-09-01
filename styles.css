@@ -92,10 +92,16 @@ footer{border-top:1px solid #292929;padding:36px 0;color:#888}
 .empty-state{color:#9c9892;border:1px dashed #3c3c3c;padding:26px;text-align:center}
 .about-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
 .about-layout-text-only{grid-template-columns:1fr}
+.join-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:34px;align-items:start}
+.join-form{display:grid;gap:15px}
+.join-form h2{margin-bottom:4px}
+.join-form input{width:100%}
+.join-form .btn{justify-self:start}
+.mailchimp-honeypot{position:absolute;left:-5000px}
 .about-logo img{width:100%;max-width:430px;object-fit:contain}
 .rule{height:1px;background:linear-gradient(90deg,var(--red),transparent);margin:28px 0}
 @media (max-width:850px){
-  .hero,.about-layout{grid-template-columns:1fr}
+  .hero,.about-layout,.join-layout{grid-template-columns:1fr}
   .hero{padding-top:38px}
   .hero-art{order:-1}
   .hero-art img{max-height:340px}
