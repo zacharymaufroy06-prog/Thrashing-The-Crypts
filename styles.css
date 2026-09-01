@@ -92,6 +92,8 @@ footer{border-top:1px solid #292929;padding:36px 0;color:#888}
 .badge{border:1px solid #453a32;padding:7px 9px;text-transform:uppercase;font-size:.72rem;letter-spacing:.08em}
 .social-link{text-decoration:none;border-color:#8e272a;color:#f0c8c9;background:#251011;font-weight:900}
 .social-link:hover{background:var(--red);color:#fff}
+.instagram-btn{border-color:#8e272a;background:#251011;color:#f5d7d0}
+.instagram-btn:hover{background:linear-gradient(180deg,#8f2119,#64120f);color:#fff}
 .empty-state{color:#9c9892;border:1px dashed #3c3c3c;padding:26px;text-align:center}
 .about-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}
 .about-layout-text-only{grid-template-columns:1fr}
