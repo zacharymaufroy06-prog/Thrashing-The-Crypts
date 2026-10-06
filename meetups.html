@@ -7,6 +7,16 @@
 <title>Meetups | Thrashing the Crypts</title>
 <meta name="description" content="Thrashing the Crypts — an old-school thrash and death metal club for meetups, shows, merch, and community.">
 <link rel="stylesheet" href="styles.css">
+<style>
+.florida-controls{display:flex;gap:20px;align-items:end;flex-wrap:wrap;margin-bottom:22px}
+.florida-controls select{max-width:100%;min-width:220px;padding:12px;background:var(--panel);color:var(--ink);border:1px solid var(--line);font:inherit}
+.florida-controls select:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
+.florida-board [hidden]{display:none!important}
+.florida-board .tour-card{gap:.6rem}
+.florida-board .tour-card .meta{margin:0 0 12px}
+.florida-board details{margin-top:24px}
+.florida-board summary{cursor:pointer;padding:14px 0;font-weight:bold}
+</style>
 <script defer src="script.js"></script>
 </head>
 <body>
@@ -21,6 +31,353 @@
 <div class="wrap">
   <div class="section-head"><div><div class="eyebrow">Shows & hangouts</div><h1 style="font-size:clamp(3rem,7vw,6rem)">Meetups</h1></div>
   <p>Find upcoming metal shows, follow official ticket links, and make plans to meet other members in the pit.</p></div>
+
+    <section class="tour-board florida-board" aria-labelledby="florida-board-title">
+    <div class="section-head tour-board-head">
+      <div><div class="eyebrow">In our state</div><h2 id="florida-board-title">Upcoming Florida metal shows</h2></div>
+      <p>Shows to plan your next meetup around, from local stages to touring bands. Member attendance is not yet confirmed. Event listings checked October 6, 2026; follow each link for the latest details and tickets.</p>
+    </div>
+    <div class="florida-controls">
+      <div><label for="florida-city">Browse by city</label>
+        <select id="florida-city">
+          <option value="">All Florida cities</option>
+          <option value="Bradenton">Bradenton</option>
+          <option value="Clearwater">Clearwater</option>
+          <option value="Destin">Destin</option>
+          <option value="Fort Lauderdale">Fort Lauderdale</option>
+          <option value="Gainesville">Gainesville</option>
+          <option value="Jacksonville">Jacksonville</option>
+          <option value="Miami">Miami</option>
+          <option value="Orlando">Orlando</option>
+          <option value="St. Petersburg">St. Petersburg</option>
+          <option value="Tallahassee">Tallahassee</option>
+          <option value="Tampa">Tampa</option>
+        </select>
+      </div>
+      <p id="florida-count" class="meta" role="status">45 upcoming Florida listings</p>
+    </div>
+    <div id="florida-shows" class="grid tour-grid">
+      <article class="card tour-card florida-show" data-city="Orlando" data-end-date="2026-10-07">
+        <div class="kicker">Orlando, Florida</div>
+        <h3 class="band">He Is Legend</h3>
+        <p class="meta"><strong><time datetime="2026-10-07">Oct 7, 2026</time></strong><br>Conduit</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/he-is-legend-the-time-travel-tour-in-orlando/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Orlando" data-end-date="2026-10-08">
+        <div class="kicker">Orlando, Florida</div>
+        <h3 class="band">PIG</h3>
+        <p class="meta"><strong><time datetime="2026-10-08">Oct 8, 2026</time></strong><br>Conduit</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Tampa" data-end-date="2026-10-09">
+        <div class="kicker">Tampa, Florida</div>
+        <h3 class="band">PIG</h3>
+        <p class="meta"><strong><time datetime="2026-10-09">Oct 9, 2026</time></strong><br>The Orpheum</p>
+        <a class="btn primary" href="https://www.theorpheum.com/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Orlando" data-end-date="2026-10-10">
+        <div class="kicker">Orlando, Florida</div>
+        <h3 class="band">NiNi &amp; Seven Kingdoms</h3>
+        <p class="meta"><strong><time datetime="2026-10-10">Oct 10, 2026</time></strong><br>Conduit</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/nini-seven-kingdoms-and-more-in-orlando/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Jacksonville" data-end-date="2026-10-11">
+        <div class="kicker">Jacksonville, Florida</div>
+        <h3 class="band">Spite · Stick To Your Guns · No Cure · Vomit Forth</h3>
+        <p class="meta"><strong><time datetime="2026-10-11">Oct 11, 2026</time></strong><br>FIVE</p>
+        <a class="btn primary" href="https://fivejax.com/tickets/spite" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Tampa" data-end-date="2026-10-11">
+        <div class="kicker">Tampa, Florida</div>
+        <h3 class="band">NiNi</h3>
+        <p class="meta"><strong><time datetime="2026-10-11">Oct 11, 2026</time></strong><br>The Orpheum</p>
+        <a class="btn primary" href="https://www.theorpheum.com/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Bradenton" data-end-date="2026-10-12">
+        <div class="kicker">Bradenton, Florida</div>
+        <h3 class="band">Stick To Your Guns · No Cure · Vomit Forth</h3>
+        <p class="meta"><strong><time datetime="2026-10-12">Oct 12, 2026</time></strong><br>Oscura</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/stick-to-your-guns-no-cure-and-vomit-forth-in-bradenton/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Jacksonville" data-end-date="2026-10-13">
+        <div class="kicker">Jacksonville, Florida</div>
+        <h3 class="band">Thrown · Norma Jean · Half Me · Boltcutter</h3>
+        <p class="meta"><strong><time datetime="2026-10-13">Oct 13, 2026</time></strong><br>Albatross</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/thrown-norma-jean-half-me-and-boltcutter-in-jacksonville/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Tampa" data-end-date="2026-10-14">
+        <div class="kicker">Tampa, Florida</div>
+        <h3 class="band">Thrown</h3>
+        <p class="meta"><strong><time datetime="2026-10-14">Oct 14, 2026</time></strong><br>The Orpheum</p>
+        <a class="btn primary" href="https://www.theorpheum.com/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Orlando" data-end-date="2026-10-15">
+        <div class="kicker">Orlando, Florida</div>
+        <h3 class="band">Arch Enemy &amp; The Black Dahlia Murder</h3>
+        <p class="meta"><strong><time datetime="2026-10-15">Oct 15, 2026</time></strong><br>The Beacham</p>
+        <a class="btn primary" href="https://www.visitorlando.com/event/arch-enemy-%2B-the-black-dahlia-murder/34717/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Clearwater" data-end-date="2026-10-16">
+        <div class="kicker">Clearwater, Florida</div>
+        <h3 class="band">Chad Gray · Butcher Babies · Devil&#39;s Cut</h3>
+        <p class="meta"><strong><time datetime="2026-10-16">Oct 16, 2026</time></strong><br>OCC Road House &amp; Museum — Music Hall</p>
+        <a class="btn primary" href="https://shop.occroadhouse.com/collections/road-house-nation-presents-chad-gray-w-special-guests-devils-cut-and-butcher-babies-10-16-26" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Fort Lauderdale" data-end-date="2026-10-16">
+        <div class="kicker">Fort Lauderdale, Florida</div>
+        <h3 class="band">Arch Enemy &amp; The Black Dahlia Murder</h3>
+        <p class="meta"><strong><time datetime="2026-10-16">Oct 16, 2026</time></strong><br>Revolution Live at the Backyard</p>
+        <a class="btn primary" href="https://www.jointherevolution.net/concerts/arch-enemy-the-black-dahlia-murder/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Jacksonville" data-end-date="2026-10-16">
+        <div class="kicker">Jacksonville, Florida</div>
+        <h3 class="band">sunn O)))</h3>
+        <p class="meta"><strong><time datetime="2026-10-16">Oct 16, 2026</time></strong><br>FIVE</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/sunn-o-in-jacksonville/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Orlando" data-end-date="2026-10-16">
+        <div class="kicker">Orlando, Florida</div>
+        <h3 class="band">Portrayal of Guilt &amp; Helvetica</h3>
+        <p class="meta"><strong><time datetime="2026-10-16">Oct 16, 2026</time></strong><br>Will&#39;s Pub</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/portrayal-of-guilt-and-helvetica-in-orlando/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Tampa" data-end-date="2026-10-16">
+        <div class="kicker">Tampa, Florida</div>
+        <h3 class="band">Combichrist</h3>
+        <p class="meta"><strong><time datetime="2026-10-16">Oct 16, 2026</time></strong><br>The Orpheum</p>
+        <a class="btn primary" href="https://www.theorpheum.com/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Gainesville" data-end-date="2026-10-17">
+        <div class="kicker">Gainesville, Florida</div>
+        <h3 class="band">Butcher Babies</h3>
+        <p class="meta"><strong><time datetime="2026-10-17">Oct 17, 2026</time></strong><br>Heartwood Soundstage</p>
+        <a class="btn primary" href="https://app.opendate.io/e/butcher-babies-october-17-2026-741986" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Miami" data-end-date="2026-10-17">
+        <div class="kicker">Miami, Florida</div>
+        <h3 class="band">Portrayal of Guilt · Headfoam · Absolver · Vertical Burial</h3>
+        <p class="meta"><strong><time datetime="2026-10-17">Oct 17, 2026</time></strong><br>Churchill&#39;s Pub</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/portrayal-of-guilt-headfoam-absolver-and-vertical-burial-in-miami/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="St. Petersburg" data-end-date="2026-10-18">
+        <div class="kicker">St. Petersburg, Florida</div>
+        <h3 class="band">Arch Enemy &amp; The Black Dahlia Murder</h3>
+        <p class="meta"><strong><time datetime="2026-10-18">Oct 18, 2026</time></strong><br>Jannus Live</p>
+        <a class="btn primary" href="https://noclubs.com/events/arch-enemy-the-black-dahlia-murder-wrath-across-north-america-2026/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Jacksonville" data-end-date="2026-10-19">
+        <div class="kicker">Jacksonville, Florida</div>
+        <h3 class="band">Stryper</h3>
+        <p class="meta"><strong><time datetime="2026-10-19">Oct 19, 2026</time></strong><br>FIVE</p>
+        <a class="btn primary" href="https://fivejax.com/tickets/stryper" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Tampa" data-end-date="2026-10-19">
+        <div class="kicker">Tampa, Florida</div>
+        <h3 class="band">The Convalescence</h3>
+        <p class="meta"><strong><time datetime="2026-10-19">Oct 19, 2026</time></strong><br>The Orpheum</p>
+        <a class="btn primary" href="https://www.theorpheum.com/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="St. Petersburg" data-end-date="2026-10-20">
+        <div class="kicker">St. Petersburg, Florida</div>
+        <h3 class="band">Dying Fetus &amp; Sanguisugabogg</h3>
+        <p class="meta"><strong><time datetime="2026-10-20">Oct 20, 2026</time></strong><br>Jannus Live</p>
+        <a class="btn primary" href="https://www.theorpheum.com/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Gainesville" data-end-date="2026-10-25">
+        <div class="kicker">Gainesville, Florida</div>
+        <h3 class="band">THE FEST 24 — Torche &amp; Iron Reagan among the lineup</h3>
+        <p class="meta"><strong><time datetime="2026-10-23">Oct 23, 2026</time> – <time datetime="2026-10-25">Oct 25, 2026</time></strong><br>Multiple venues — see festival schedule</p>
+        <a class="btn primary" href="https://thefestfl.com/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Miami" data-end-date="2026-10-23">
+        <div class="kicker">Miami, Florida</div>
+        <h3 class="band">Torche · Bleeth · Orbiter · Wastelands · Inscribed</h3>
+        <p class="meta"><strong><time datetime="2026-10-23">Oct 23, 2026</time></strong><br>Churchill&#39;s Pub</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/torche-bleeth-wastelands-inscribed-in-miami/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Orlando" data-end-date="2026-10-23">
+        <div class="kicker">Orlando, Florida</div>
+        <h3 class="band">Nekrogoblikon · Aborted · Signs of the Swarm · Party Cannon</h3>
+        <p class="meta"><strong><time datetime="2026-10-23">Oct 23, 2026</time></strong><br>The Beacham</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/nekrogoblikon-aborted-signs-of-the-swam-and-party-cannon-in-orlando/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Jacksonville" data-end-date="2026-10-29">
+        <div class="kicker">Jacksonville, Florida</div>
+        <h3 class="band">GWAR</h3>
+        <p class="meta"><strong><time datetime="2026-10-29">Oct 29, 2026</time></strong><br>FIVE</p>
+        <a class="btn primary" href="https://fivejax.com/tickets/gwar" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Jacksonville" data-end-date="2026-10-30">
+        <div class="kicker">Jacksonville, Florida</div>
+        <h3 class="band">PeelingFlesh</h3>
+        <p class="meta"><strong><time datetime="2026-10-30">Oct 30, 2026</time></strong><br>Albatross</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/peelingflesh-in-jacksonville/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Orlando" data-end-date="2026-10-31">
+        <div class="kicker">Orlando, Florida</div>
+        <h3 class="band">Genitorturers &amp; Nathan James</h3>
+        <p class="meta"><strong><time datetime="2026-10-31">Oct 31, 2026</time></strong><br>Conduit</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/genitorturers-live-lewd-tour-in-orlando/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Orlando" data-end-date="2026-11-03">
+        <div class="kicker">Orlando, Florida</div>
+        <h3 class="band">OK Goodnight · Lux Terminus · Eve</h3>
+        <p class="meta"><strong><time datetime="2026-11-03">Nov 3, 2026</time></strong><br>Conduit</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/ok-goodnight-lux-terminus-and-eve-in-orlando/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Fort Lauderdale" data-end-date="2026-11-04">
+        <div class="kicker">Fort Lauderdale, Florida</div>
+        <h3 class="band">GWAR · Midnight · Mac Sabbath · X-Cops</h3>
+        <p class="meta"><strong><time datetime="2026-11-04">Nov 4, 2026</time></strong><br>Revolution Live</p>
+        <a class="btn primary" href="https://www.jointherevolution.net/concerts/gwar-2/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Jacksonville" data-end-date="2026-11-04">
+        <div class="kicker">Jacksonville, Florida</div>
+        <h3 class="band">Herakleion</h3>
+        <p class="meta"><strong><time datetime="2026-11-04">Nov 4, 2026</time></strong><br>The Albatross</p>
+        <a class="btn primary" href="https://herakleion.net/news" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Orlando" data-end-date="2026-11-05">
+        <div class="kicker">Orlando, Florida</div>
+        <h3 class="band">GWAR · Midnight · Mac Sabbath · X-Cops</h3>
+        <p class="meta"><strong><time datetime="2026-11-05">Nov 5, 2026</time></strong><br>The Beacham</p>
+        <a class="btn primary" href="https://www.concertarchives.org/venues/the-beacham" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Tallahassee" data-end-date="2026-11-05">
+        <div class="kicker">Tallahassee, Florida</div>
+        <h3 class="band">Herakleion</h3>
+        <p class="meta"><strong><time datetime="2026-11-05">Nov 5, 2026</time></strong><br>The Bark</p>
+        <a class="btn primary" href="https://herakleion.net/news" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Tampa" data-end-date="2026-11-06">
+        <div class="kicker">Tampa, Florida</div>
+        <h3 class="band">Herakleion</h3>
+        <p class="meta"><strong><time datetime="2026-11-06">Nov 6, 2026</time></strong><br>The Brass Mug</p>
+        <a class="btn primary" href="https://herakleion.net/news" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Jacksonville" data-end-date="2026-11-07">
+        <div class="kicker">Jacksonville, Florida</div>
+        <h3 class="band">Girl of Glass</h3>
+        <p class="meta"><strong><time datetime="2026-11-07">Nov 7, 2026</time></strong><br>Hard Love</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/girl-of-glass-in-jacksonville/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Orlando" data-end-date="2026-11-12">
+        <div class="kicker">Orlando, Florida</div>
+        <h3 class="band">Forbidden</h3>
+        <p class="meta"><strong><time datetime="2026-11-12">Nov 12, 2026</time></strong><br>Conduit</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/forbidden-chaos-by-design-tour-in-orlando/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Destin" data-end-date="2026-11-15">
+        <div class="kicker">Destin, Florida</div>
+        <h3 class="band">Forbidden</h3>
+        <p class="meta"><strong><time datetime="2026-11-15">Nov 15, 2026</time></strong><br>Club LA</p>
+        <a class="btn primary" href="https://www.livenation.com/artist/K8vZ917GEf0/forbidden-events" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Tampa" data-end-date="2026-11-20">
+        <div class="kicker">Tampa, Florida</div>
+        <h3 class="band">Miss May I &amp; Born of Osiris</h3>
+        <p class="meta"><strong><time datetime="2026-11-20">Nov 20, 2026</time></strong><br>The Orpheum</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/miss-may-i-x-born-of-osiris-in-tampa/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Fort Lauderdale" data-end-date="2026-11-27">
+        <div class="kicker">Fort Lauderdale, Florida</div>
+        <h3 class="band">Slaughter To Prevail</h3>
+        <p class="meta"><strong><time datetime="2026-11-27">Nov 27, 2026</time></strong><br>Revolution Live</p>
+        <a class="btn primary" href="https://www.jointherevolution.net/concerts/slaughter-to-prevail/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Orlando" data-end-date="2026-12-11">
+        <div class="kicker">Orlando, Florida</div>
+        <h3 class="band">Insomnium &amp; Amorphis</h3>
+        <p class="meta"><strong><time datetime="2026-12-11">Dec 11, 2026</time></strong><br>The Abbey</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/insomnium-amorphis-in-orlando/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Jacksonville" data-end-date="2026-12-12">
+        <div class="kicker">Jacksonville, Florida</div>
+        <h3 class="band">Amorphis &amp; Insomnium</h3>
+        <p class="meta"><strong><time datetime="2026-12-12">Dec 12, 2026</time></strong><br>Albatross</p>
+        <a class="btn primary" href="https://www.ticketweb.com/event/amorphis-insomnium-in-jacksonville-albatross-tickets/14282014?pl=endoxa" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Jacksonville" data-end-date="2026-12-16">
+        <div class="kicker">Jacksonville, Florida</div>
+        <h3 class="band">Distant</h3>
+        <p class="meta"><strong><time datetime="2026-12-16">Dec 16, 2026</time></strong><br>Albatross</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/distant-into-despair-tour-in-jacksonville/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Orlando" data-end-date="2026-12-17">
+        <div class="kicker">Orlando, Florida</div>
+        <h3 class="band">Distant</h3>
+        <p class="meta"><strong><time datetime="2026-12-17">Dec 17, 2026</time></strong><br>The Abbey</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/distant-into-despair-tour-in-orlando/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Tampa" data-end-date="2026-12-18">
+        <div class="kicker">Tampa, Florida</div>
+        <h3 class="band">Bodysnatcher</h3>
+        <p class="meta"><strong><time datetime="2026-12-18">Dec 18, 2026</time></strong><br>The Orpheum</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/bodysnatchers-christmas-vacation-in-tampa/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Miami" data-end-date="2027-02-12">
+        <div class="kicker">Miami, Florida</div>
+        <h3 class="band">Nervosa &amp; Embryonic Autopsy</h3>
+        <p class="meta"><strong><time datetime="2027-02-12">Feb 12, 2027</time></strong><br>Churchill&#39;s Pub</p>
+        <a class="btn primary" href="https://www.ticketweb.com/event/nervosa-embryonic-autopsy-and-more-churchills-pub-tickets/14269484?pl=endoxa" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+
+      <article class="card tour-card florida-show" data-city="Orlando" data-end-date="2027-02-13">
+        <div class="kicker">Orlando, Florida</div>
+        <h3 class="band">Nervosa &amp; Embryonic Autopsy</h3>
+        <p class="meta"><strong><time datetime="2027-02-13">Feb 13, 2027</time></strong><br>Conduit</p>
+        <a class="btn primary" href="https://www.endoxabooking.com/tm-event/nervosa-embryonic-autopsy-and-more-in-orlando/" target="_blank" rel="noopener">Event details / tickets</a>
+      </article>
+    </div>
+    <p id="florida-empty" class="empty-state" hidden>No upcoming shows listed for this city. Try another city.</p>
+    <details id="florida-archive" hidden>
+      <summary>Past Florida listings</summary>
+      <div id="florida-archive-shows" class="grid tour-grid"></div>
+    </details>
+  </section>
 
   <section class="pit-preview" aria-labelledby="pit-preview-title">
     <div class="section-head">
@@ -163,6 +520,40 @@
     <div class="badge-row"><a class="badge social-link" href="https://www.instagram.com/thrashing_the_crypts/" target="_blank" rel="noopener">Instagram</a><span class="badge">Thrash</span><span class="badge">Death Metal</span><span class="badge">DIY</span><span class="badge">Local Shows</span></div>
   </div>
 </footer>
+<script>
+(() => {
+  const city = document.getElementById("florida-city");
+  const host = document.getElementById("florida-shows");
+  const archive = document.getElementById("florida-archive");
+  const archiveHost = document.getElementById("florida-archive-shows");
+  const count = document.getElementById("florida-count");
+  const empty = document.getElementById("florida-empty");
+  const parts = Object.fromEntries(new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit"
+  }).formatToParts(new Date()).map(part => [part.type, part.value]));
+  const today = parts.year + "-" + parts.month + "-" + parts.day;
+  host.querySelectorAll(".florida-show").forEach(card => {
+    if (card.dataset.endDate < today) {
+      card.querySelector(".kicker").textContent = "Past date · " + card.dataset.city + ", Florida";
+      card.querySelector(".btn").classList.remove("primary");
+      archiveHost.appendChild(card);
+      archive.hidden = false;
+    }
+  });
+  const cards = Array.from(host.querySelectorAll(".florida-show"));
+  const filter = () => {
+    let visible = 0;
+    cards.forEach(card => {
+      card.hidden = Boolean(city.value && card.dataset.city !== city.value);
+      if (!card.hidden) visible++;
+    });
+    count.textContent = "Showing " + visible + " of " + cards.length + " upcoming Florida listings";
+    empty.hidden = visible !== 0;
+  };
+  city.addEventListener("change", filter);
+  filter();
+})();
+</script>
 </body>
 </html>
 
