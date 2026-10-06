@@ -16,6 +16,11 @@
 .florida-board .tour-card .meta{margin:0 0 12px}
 .florida-board details{margin-top:24px}
 .florida-board summary{cursor:pointer;padding:14px 0;font-weight:bold}
+.gainesville-spotlight{margin-bottom:24px;border-left:3px solid var(--rust);padding:22px;background:var(--panel)}
+.gainesville-spotlight ul{padding-left:20px;line-height:1.8}
+.florida-controls label{display:block;margin-bottom:8px}
+.calendar-note{font-size:.9rem}
+.meetup-guide{margin:32px 0}
 </style>
 <script defer src="script.js"></script>
 </head>
@@ -37,6 +42,14 @@
       <div><div class="eyebrow">In our state</div><h2 id="florida-board-title">Upcoming Florida metal shows</h2></div>
       <p>Shows to plan your next meetup around, from local stages to touring bands. Member attendance is not yet confirmed. Event listings checked October 6, 2026; follow each link for the latest details and tickets.</p>
     </div>
+    <aside class="gainesville-spotlight" aria-labelledby="gainesville-title">
+      <div class="eyebrow">Close to home</div><h3 id="gainesville-title">Gainesville spotlight</h3>
+      <ul id="gainesville-picks">
+        <li>Oct 17 — Butcher Babies at Heartwood Soundstage</li>
+        <li>Oct 23–25 — THE FEST 24 at multiple venues</li>
+      </ul>
+      <button id="gainesville-filter" class="btn" type="button" hidden>Browse Gainesville shows</button>
+    </aside>
     <div class="florida-controls">
       <div><label for="florida-city">Browse by city</label>
         <select id="florida-city">
@@ -54,8 +67,11 @@
           <option value="Tampa">Tampa</option>
         </select>
       </div>
+      <div><label for="florida-month">Browse by month</label><select id="florida-month" disabled><option value="">All months</option></select></div>
+      <button id="florida-reset" class="btn" type="button" hidden>Reset filters</button>
       <p id="florida-count" class="meta" role="status">45 upcoming Florida listings</p>
     </div>
+    <p class="calendar-note">Calendar downloads save the show dates as all-day reminders. Check the event link for doors and set times.</p>
     <div id="florida-shows" class="grid tour-grid">
       <article class="card tour-card florida-show" data-city="Orlando" data-end-date="2026-10-07">
         <div class="kicker">Orlando, Florida</div>
@@ -372,11 +388,18 @@
         <a class="btn primary" href="https://www.endoxabooking.com/tm-event/nervosa-embryonic-autopsy-and-more-in-orlando/" target="_blank" rel="noopener">Event details / tickets</a>
       </article>
     </div>
-    <p id="florida-empty" class="empty-state" hidden>No upcoming shows listed for this city. Try another city.</p>
+    <p id="florida-empty" class="empty-state" hidden>No upcoming shows match these filters. Try another city or month.</p>
     <details id="florida-archive" hidden>
       <summary>Past Florida listings</summary>
       <div id="florida-archive-shows" class="grid tour-grid"></div>
     </details>
+  </section>
+
+  <section class="meetup-guide card" aria-labelledby="meetup-guide-title">
+    <div class="eyebrow">Make it a meetup</div><h2 id="meetup-guide-title">New to the crew?</h2>
+    <p>Pick a show, grab your ticket through the event link, and message the club to see who is going and arrange a meeting spot. Coming solo? Introduce yourself — a show is a good place to meet the crew.</p>
+    <p>Know a Florida metal show we missed, or spotted a cancellation? Send us the band, date, venue, city, and official event link on Instagram.</p>
+    <div class="actions"><a class="btn primary" href="join.html">Join the club</a><a class="btn" href="https://www.instagram.com/thrashing_the_crypts/" target="_blank" rel="noopener">Suggest a show / contact us</a></div>
   </section>
 
   <section class="pit-preview" aria-labelledby="pit-preview-title">
@@ -523,6 +546,8 @@
 <script>
 (() => {
   const city = document.getElementById("florida-city");
+  const month = document.getElementById("florida-month");
+  const reset = document.getElementById("florida-reset");
   const host = document.getElementById("florida-shows");
   const archive = document.getElementById("florida-archive");
   const archiveHost = document.getElementById("florida-archive-shows");
@@ -541,19 +566,94 @@
     }
   });
   const cards = Array.from(host.querySelectorAll(".florida-show"));
+  const months = new Set();
+  cards.forEach(card => {
+    const start = card.querySelector("time").dateTime;
+    let cursor = start.slice(0, 7);
+    while (cursor <= card.dataset.endDate.slice(0, 7)) {
+      months.add(cursor);
+      const [year, number] = cursor.split("-").map(Number);
+      cursor = number === 12 ? (year + 1) + "-01" : year + "-" + String(number + 1).padStart(2, "0");
+    }
+    const calendar = document.createElement("button");
+    calendar.type = "button";
+    calendar.className = "btn calendar-download";
+    calendar.textContent = "Add to calendar";
+    calendar.setAttribute("aria-label", "Add " + card.querySelector("h3").textContent + " in " + card.dataset.city + " to calendar");
+    calendar.addEventListener("click", () => {
+      const escape = value => value.replace(/\\/g, "\\\\").replace(/\r?\n/g, "\\n").replace(/;/g, "\\;").replace(/,/g, "\\,");
+      const end = new Date(card.dataset.endDate + "T00:00:00Z");
+      end.setUTCDate(end.getUTCDate() + 1);
+      const url = card.querySelector("a").href;
+      const title = card.querySelector("h3").textContent;
+      const venue = card.querySelector(".meta").textContent.slice(card.querySelector("strong").textContent.length).trim();
+      const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Thrashing the Crypts//Florida Shows//EN", "CALSCALE:GREGORIAN", "BEGIN:VEVENT",
+        "UID:" + start + "-" + (card.dataset.city + "-" + title).toLowerCase().replace(/[^a-z0-9]+/g, "-") + "@thrashing-the-crypts",
+        "DTSTAMP:" + new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""),
+        "DTSTART;VALUE=DATE:" + start.replace(/-/g, ""), "DTEND;VALUE=DATE:" + end.toISOString().slice(0, 10).replace(/-/g, ""),
+        "SUMMARY:" + escape(title), "LOCATION:" + escape(venue + ", " + card.dataset.city + ", Florida"),
+        "DESCRIPTION:" + escape("Show date reminder. Check the event link for doors and set times. Member attendance is not confirmed. " + url),
+        "URL:" + url, "END:VEVENT", "END:VCALENDAR"];
+      // Fold long content lines at 75 UTF-8 bytes for calendar compatibility.
+      const folded = lines.map(line => {
+        let result = "", bytes = 0;
+        for (const character of line) {
+          const size = new TextEncoder().encode(character).length;
+          if (bytes + size > 75) { result += "\r\n "; bytes = 1; }
+          result += character; bytes += size;
+        }
+        return result;
+      }).join("\r\n") + "\r\n";
+      const download = document.createElement("a");
+      download.href = URL.createObjectURL(new Blob([folded], {type: "text/calendar;charset=utf-8"}));
+      download.download = start + "-" + title.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 70) + ".ics";
+      document.body.appendChild(download); download.click(); download.remove();
+      setTimeout(() => URL.revokeObjectURL(download.href), 1000);
+    });
+    card.appendChild(calendar);
+  });
+  Array.from(months).sort().forEach(value => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = new Intl.DateTimeFormat("en-US", {month: "long", year: "numeric", timeZone: "UTC"}).format(new Date(value + "-01T00:00:00Z"));
+    month.appendChild(option);
+  });
+  month.disabled = false;
+  reset.hidden = false;
+  const picks = document.getElementById("gainesville-picks");
+  picks.replaceChildren();
+  const local = cards.filter(card => card.dataset.city === "Gainesville");
+  local.slice(0, 3).forEach(card => {
+    const item = document.createElement("li");
+    const link = document.createElement("a");
+    link.href = card.querySelector("a").href;
+    link.target = "_blank"; link.rel = "noopener";
+    link.textContent = card.querySelector("strong").textContent + " — " + card.querySelector("h3").textContent;
+    item.appendChild(link); picks.appendChild(item);
+  });
+  if (!local.length) {
+    const item = document.createElement("li");
+    item.textContent = "No upcoming Gainesville shows listed yet. Browse Florida or send us a local show.";
+    picks.appendChild(item);
+  }
+  const localFilter = document.getElementById("gainesville-filter");
+  localFilter.hidden = !local.length;
   const filter = () => {
     let visible = 0;
     cards.forEach(card => {
-      card.hidden = Boolean(city.value && card.dataset.city !== city.value);
+      const start = card.querySelector("time").dateTime.slice(0, 7);
+      card.hidden = Boolean((city.value && card.dataset.city !== city.value) || (month.value && (month.value < start || month.value > card.dataset.endDate.slice(0, 7))));
       if (!card.hidden) visible++;
     });
     count.textContent = "Showing " + visible + " of " + cards.length + " upcoming Florida listings";
     empty.hidden = visible !== 0;
   };
   city.addEventListener("change", filter);
+  month.addEventListener("change", filter);
+  reset.addEventListener("click", () => { city.value = ""; month.value = ""; filter(); });
+  localFilter.addEventListener("click", () => { city.value = "Gainesville"; month.value = ""; filter(); city.focus(); });
   filter();
 })();
 </script>
 </body>
 </html>
-
